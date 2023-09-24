@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  
+</head>
+
+<body class="bodyMain">
+
+  <ul id="tasks"></ul>
+  <button id="buttonMyOrders" class="orders_btn" type="button">Мои заказы</button>
+
+  <ol id="tasks"></ol>
+  
+  <div id="main">
+    <div class="pretty" id="left"></div>
+    <div class="pretty" id="center"></div>
+    <div class="pretty" id="right"></div>
+  </div>
+
+  <div class="test">
+
+    <form name="myForm" class="hidden" id="customerForm">
+
+      <p name="productElement" id="productChoosed"></p>
+    
+      <p>ФИО получателя: <input type="text" name="customer" placeholder="ФИО" required><span id="customerError"></span></p>
+    
+      <p>Ваш город:
+        <select name="city" required>
+          <option value="">---</option>
+          <option value="odessa">Одесса</option>
+          <option value="kyev">Киев</option>
+          <option value="lvov">Львов</option>
+        </select><span id="cityError"></span>
+      </p>
+    
+      <p>Отделение Новой почты:
+        <select name="postal" required>
+          <option value="">---</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select><span id="postalError"></span>
+      </p>
+    
+      <p>Тип оплаты:
+        <label><input class="radioForm" type="radio" name="payment" value="before">Предоплата</label>
+        <label><input class="radioForm" type="radio" name="payment" value="after">Наложенный платёж</label><span id="paymentError"></span>
+      </p>
+    
+      <p>Количество единиц: <input type="number" name="amount" min="1" step="1"><span id="amountError"></span></p>
+    
+      <p>Комментарий к заказу:<br>
+        <textarea maxlength="200" name="comment" rows="5" cols="40" style="resize: none;"></textarea>
+        <span id="commentError"></span>
+      </p>
+    
+      <p><input id="btn" type="button" value="Подтвердить"></p>
+    
+    </form>
+
+  <table id="resultTable"></table>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/app1.js"></script>
+</body>
+
+</html>

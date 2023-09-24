@@ -1,0 +1,157 @@
+.bodyForm,
+.bodyMain {
+  font-size: 16px;
+  background-color: rgba(255, 228, 196, 0.2);
+}
+
+/*=======ORDERS BTN========*/
+.orders_btn {
+  height: fit-content;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: hsl(88, 70%, 30%);
+  text-shadow: rgba(255,255,255,.5) 0 -1px 0, rgba(0,0,0,.2) 0 .18em .15em;
+  text-decoration: none;
+  user-select: none;
+  margin: 0 .5em 30px 0.5em;
+  padding: .5em .6em .4em .6em;
+  border-radius: 8px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  border-left: none;
+  border-right: none;
+  outline: none;
+  background: #a2cf70 radial-gradient(rgba(255,255,255,0), rgba(255,255,255,.5));
+  box-shadow:
+   inset rgba(255,255,255,.6) 0 .3em .3em,
+   inset rgba(0,0,0,.2) 0 -.1em .3em,
+   rgb(128,161,103) 0 7px 1px,
+   rgba(0,0,0,.2) 0 .5em 5px;
+  transition: background .2s ease-in-out;
+}
+.orders_btn:hover {
+  background-color: hsl(88, 70%, 75%);
+}
+.orders_btn:active {
+  top: .2em;
+  color: rgba(254,255,255,.9);
+  text-shadow: rgba(0,0,0,.2) 0 1px 2px;
+  box-shadow:
+   inset rgba(255,255,255,.6) 0 .3em .3em,
+   inset rgba(0,0,0,.2) 0 -.1em .3em,
+   rgba(0,0,0,.4) 0 .1em 1px,
+   rgba(0,0,0,.3) 0 .2em 6px;
+}
+.orders_btn:after {
+  content:  "";
+  position:  absolute; 
+  width:   90%;
+  height:  60%;
+  top:   0;
+  left:   5%;    
+  border-radius:    .5em .5em 1em 1em / .5em .5em 2em 2em;
+  background-image: linear-gradient(rgba(255,255,255,.55), rgba(255,255,255,.3)); 
+}
+.orders_btn:active:after {
+  opacity: .6;
+}
+/*=======/ORDERS BTN========*/
+
+#main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#main>div {
+  flex-basis: 30%;
+  border: 1px solid black;
+  min-height: 100px;
+}
+
+.pretty {
+  font-size: 20px;
+  padding: 1%;
+}
+
+.jsDivs {
+  width: fit-content;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.jsDivs:hover {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.buttonCategory {
+  padding: 10px 35px;
+  overflow: hidden;
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.buttonCategory:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 238, 88, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.buttonCategory:hover:before {
+  transform: translateX(0%);
+}
+
+/*=====================<FORM.HTML>====================*/
+.titleForm,
+.subtitleForm {
+  width: max-content;
+  margin: 40px auto;
+}
+
+.titleForm {
+  font-size: 2.2rem;
+  color: green;
+}
+
+.subtitleForm {
+  font-size: 1.2rem;
+}
+
+.radioForm {
+  vertical-align: text-top;
+}
+
+table {
+  border-collapse: collapse;
+  margin-left: 50px;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+form {
+  margin: 50px;
+}
+
+.hidden {
+  display: none;
+}
+
+#productChoosed {
+  font-weight: bold;
+}
