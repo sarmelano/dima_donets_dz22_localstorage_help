@@ -1,8 +1,6 @@
-let isHidden = false;
+let isHidden = true;
 let tasks = JSON.parse(localStorage.getItem('ourTasks')) || [];
 showCategories();
-
-
 
 document.getElementById('left').addEventListener('click', event => {
   if (event.target.className === 'jsDivs') {
@@ -52,38 +50,39 @@ document.getElementById('btn').addEventListener('click', function () {
   showTasks();
   createTable(formData);
   form.reset();
+  clearErrorMessages();
 });
 
 const customerOrdersbutton = document.getElementById('buttonMyOrders');
-    customerOrdersbutton.addEventListener('click', toggleOrdersDisplay);
+customerOrdersbutton.addEventListener('click', toggleOrdersDisplay);
 
-    function toggleOrdersDisplay() {
-      const ordersContainer = document.getElementById('ordersContainer');
-      ordersContainer.classList.toggle('hidden');
-      customerOrdersbutton.textContent = isHidden ? '< Назад' : 'Мои заказы';
-      isHidden = !isHidden;
-      if (!isHidden) {
-        showTasks();
-      }
-    }
+function toggleOrdersDisplay() {
+  const ordersContainer = document.getElementById('ordersContainer');
+  ordersContainer.classList.toggle('hidden');
+  customerOrdersbutton.textContent = isHidden ? '< Назад' : 'Мои заказы';
+  isHidden = !isHidden;
+  if (!isHidden) {
+    showTasks();
+  }
+}
 
-    function showTasks() {
-      const parent = document.getElementById('tasksList');
-      parent.innerHTML = '';
-      if (tasks.length === 0) {
-        return;
-      }
-      tasks.forEach((task, index) => {
-        showTask(task, index);
-      });
-    }
+function showTasks() {
+  const parent = document.getElementById('tasksList');
+  parent.innerHTML = '';
+  if (tasks.length === 0) {
+    return;
+  }
+  tasks.forEach((task, index) => {
+    showTask(task, index);
+  });
+}
 
-    function showTask(task, index) {
-      const parent = document.getElementById('tasksList');
-      const item = document.createElement('li');
-      item.textContent = `${task.fullName}, ${task.city}, ${task.postal}, ${task.paymentMethod}, ${task.amount}, ${task.comment}`;
-      parent.appendChild(item);
-    }
+function showTask(task, index) {
+  const parent = document.getElementById('tasksList');
+  const item = document.createElement('li');
+  item.textContent = `${task.fullName}, ${task.city}, ${task.postal}, ${task.paymentMethod}, ${task.amount}, ${task.comment}`;
+  parent.appendChild(item);
+}
 
 function hide(elements) {
   elements.forEach(element => {
@@ -192,8 +191,8 @@ function createTableRow(data, cellType) {
     isValid = !isFieldEmpty(formData.postal, 'postal') && isValid;
     isValid = !isFieldEmpty(formData.paymentMethod, 'payment') && isValid;
     isValid = !isFieldEmpty(formData.amount, 'amount') && isValid;
-    isValid = !isFieldEmpty(formData.comment, 'comment') && isValid;
-  
+/*     isValid = !isFieldEmpty(formData.comment, 'comment') && isValid;
+ */  
     return isValid;
   }
   
@@ -218,3 +217,22 @@ function clearErrorMessages() {
   });
 }
 
+function addInputEventListeners() {
+  const formElements = document.forms['myForm'].elements;
+  for (let i = 0; i < formElements.length; i++) {
+    const element = formElements[i];
+    if (element.tagName === 'INPUT' || element.tagName === 'SELECT' || element.tagName === 'TEXTAREA') {
+      element.addEventListener('input', function() {
+        const errorElement = document.getElementById(element.name + 'Error');
+        if (errorElement) {
+          errorElement.textContent = '';
+        }
+      });
+    }
+  }
+}
+
+// Вызываем функцию после загрузки страницы
+document.addEventListener('DOMContentLoaded', function() {
+  addInputEventListeners();
+});

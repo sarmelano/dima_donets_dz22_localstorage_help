@@ -155,3 +155,8 @@ form {
 #productChoosed {
   font-weight: bold;
 }
+
+.error {
+  color: red; /* Устанавливаем цвет текста красным */
+  margin-left: 10px;
+}
